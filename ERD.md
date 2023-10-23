@@ -89,6 +89,7 @@ For reference, it is possible to omit one of file name or extension like
     > 
     > Possible to omit like `README` case.
   - `url`: URL path of the real file.
+---
 
 ### `bbs_articles`
 Article entity.
@@ -120,6 +121,7 @@ In other words, to keep evidence, and prevent fraud.
     > 
     > To keep evidence, do not delete the article, but just mark it as 
     > deleted.
+---
 
 ### `bbs_article_snapshots`
 Snapshot of article.
@@ -142,6 +144,7 @@ fraud.
     > Creation time of record.
     > 
     > It means creation time or update time or article.
+---
 
 ### `bbs_article_snapshot_files`
 Attachment file of article snapshot.
@@ -160,6 +163,7 @@ see in this documents.
   - `bbs_article_snapshot_id`: Belonged snapshot's [bbs_article_snapshots.id](#bbs_article_snapshots)
   - `attachment_file_id`: Belonged file's [attachment_files.id](#attachment_files)
   - `sequence`: Sequence of attachment file in the snapshot.
+---
 
 ### `bbs_article_comments`
 Comment written on an article.
@@ -189,6 +193,7 @@ hierarchical reply structure through the `parent_id` attribute.
     > 
     > Do not allow to delete the comment, but just mark it as deleted, 
     > to keep evidence.
+---
 
 ### `bbs_article_comment_snapshots`
 Snapshot of comment.
@@ -211,6 +216,7 @@ and prevent fraud.
     > Creation time of record.
     > 
     > It means creation time or update time or comment.
+---
 
 ### `bbs_article_comment_snapshot_files`
 Attachment file of comment snapshot.
@@ -227,7 +233,9 @@ relationship between [bbs_article_comment_snapshots](#bbs_article_comment_snapsh
     > Sequence order.
     > 
     > Sequence order of the attached file in the belonged snapshot.
+---
 
+<br/>
 
 ## Systematic
 ```mermaid
@@ -315,6 +323,7 @@ just use only one. This concept is designed to be expandable in the future.
   - `created_at`: Creation time of record.
   - `updated_at`: Update time of record.
   - `deleted_at`: Deletion time of record.
+---
 
 ### `shopping_channel_categories`
 Category of channel.
@@ -357,6 +366,7 @@ themselves, so there is no burden to edit the category at any time.
   - `created_at`: Creation time of record.
   - `updated_at`: Updadte time of record.
   - `deleted_at`: Deletion time of record.
+---
 
 ### `shopping_sections`
 Section information.
@@ -380,7 +390,9 @@ just use only one. This concept is designed to be expandable in the future.
   - `created_at`: Creation time of record.
   - `updated_at`: Update time of record.
   - `deleted_at`: Deletion time of record.
+---
 
+<br/>
 
 ## Actors
 ```mermaid
@@ -511,6 +523,7 @@ very systematically.
     > Creation time of record.
     > 
     > It means the time when the customer connected to the shopping mall.
+---
 
 ### `shopping_external_users`
 External user information.
@@ -559,6 +572,7 @@ be recorded in the `data` field in JSON format.
     > Creation time of record.
     > 
     > Another word, first time when the external user connected.
+---
 
 ### `shopping_citizens`
 Citizen verification information.
@@ -590,6 +604,7 @@ encrypted and stored.
     > 
     > In other words, the 1st time of citizen activation.
   - `deleted_at`: Deletion time of record.
+---
 
 ### `shopping_members`
 Member Account.
@@ -624,6 +639,7 @@ the planning will be like.
     > In other words, the joining time.
   - `updated_at`: Update time of record.
   - `withdrawn_at`: Deletion time of record.
+---
 
 ### `shopping_member_emails`
 Email address of member.
@@ -642,6 +658,7 @@ email addresses, just use only one.
   - `shopping_member_id`: Belonged member's [shopping_members.id](#shopping_members)
   - `value`: Email address.
   - `created_at`: Creation time of record.
+---
 
 ### `shopping_sellers`
 Seller information.
@@ -661,6 +678,7 @@ selling activities.
     > Withdrawal time.
     > 
     > It can be different with [shopping_members.deleted_at](#shopping_members).
+---
 
 ### `shopping_administrators`
 Administrator account.
@@ -677,6 +695,7 @@ Administrator account.
     > 
     > Withdrawal time from administrator, and can be different with
     > [shopping_members.deleted_at](#shopping_members).
+---
 
 ### `shopping_addresses`
 The address information.
@@ -696,7 +715,9 @@ The address information.
   - `zip_code`: Zip code, or postal code.
   - `special_note`: Special description if required.
   - `created_at`: Creation time of record.
+---
 
+<br/>
 
 ## Sales
 ```mermaid
@@ -871,6 +892,7 @@ the performance in each case.
     > At 1st, seller and [administrator](#shopping_administrators) can
     > see suspended sale in list and detail page. At 2nd, seller can
     > resume the sale at any time.
+---
 
 ### `shopping_sale_snapshots`
 Sale snapshot information.
@@ -892,6 +914,7 @@ x | [shopping_carts](#shopping_carts) | [shopping_orders](#shopping_orders)
     > Creation time of record.
     > 
     > It means the time when the seller created or updated the sale.
+---
 
 ### `shopping_sale_snapshot_contents`
 Content information of sale snapshot.
@@ -915,6 +938,7 @@ revert policy of the sale.
     > This is essential in South Korea, but I don't know well in overseas.
     > 
     > Just use when you need.
+---
 
 ### `shopping_sale_snapshot_channels`
 Target channel of sale snapshot to sell.
@@ -928,6 +952,7 @@ resolve the M:N relationship between two tables.
   - `id`: 
   - `shopping_sale_snapshot_id`: Belonged snapshot's [shopping_sale_snapshots.id](#shopping_sale_snapshots).
   - `shopping_channel_id`: Belonged channel's [shopping_channels.id](#shopping_channels).
+---
 
 ### `shopping_sale_snapshot_channel_categories`
 Category classification info of sale snapshot.
@@ -946,6 +971,7 @@ major category, all minor categories belonging to it can also be used.
   - `id`: 
   - `shopping_sale_snapshot_channel_id`: Belonged assigned channel of sale snapshot's [shopping_sale_snapshot_channels.id](#shopping_sale_snapshot_channels)
   - `shopping_channel_category_id`: Belonged channel category's [shopping_channel_categories.id](#shopping_channel_categories)
+---
 
 ### `shopping_sale_snapshot_units`
 Product composition information handled in the sale snapshot.
@@ -992,6 +1018,7 @@ only after selecting all the
     > When the unit is required, the customer must select the unit. If do
     > not select, customer can't buy it.
   - `sequence`: Sequence order in belonged snapshot.
+---
 
 ### `shopping_sale_snapshot_unit_options`
 Individual option information on units for sale.
@@ -1044,6 +1071,7 @@ this case does not affect the
     > For reference, if `type` value is not `"select"`, this attribute
     > is always `false`.
   - `sequence`: Sequence order in belonged unit.
+---
 
 ### `shopping_sale_snapshot_unit_option_candidates`
 Selectable candidate values within an option.
@@ -1065,6 +1093,7 @@ is not "select" type, this entity never being used.
   - `shopping_sale_snapshot_unit_option_id`: Belonged option's [shopping_sale_snapshot_unit_options.id](#shopping_sale_snapshot_unit_options)
   - `name`: Representative name of candidate value.
   - `sequence`: Sequence order in option.
+---
 
 ### `shopping_sale_snapshot_unit_stocks`
 Final component information on units for sale.
@@ -1107,6 +1136,7 @@ stocks count in the unit is only 1.
   - `real_price`: Real price to pay.
   - `tax`: Tax to pay.
   - `sequence`: Sequence order in belonged unit.
+---
 
 ### `shopping_sale_snapshot_unit_stock_choices`
 Of course, if the bound [unit](#shopping_sale_snapshot_units) does not 
@@ -1118,7 +1148,9 @@ can also be ignored.
   - `shopping_sale_snapshot_unit_stock_id`: Belonged stock's [shopping_sale_snapshot_unit_stocks.id](#shopping_sale_snapshot_unit_stocks)
   - `shopping_sale_snapshot_unit_option_candidate_id`: Belonged candidate's [shopping_sale_snapshot_unit_option_candidates.id](#shopping_sale_snapshot_unit_option_candidates)
   - `sequence`: Sequence order in belonged stock.
+---
 
+<br/>
 
 ## Carts
 ```mermaid
@@ -1219,6 +1251,7 @@ x | [shopping_carts](#shopping_carts) | [shopping_orders](#shopping_orders)
   - `id`: 
   - `shopping_customer_id`: Belonged customer's [shopping_customers.id](#shopping_customers)
   - `created_at`: Creation time of record.
+---
 
 ### `shopping_cart_commodities`
 Item in a shopping cart.
@@ -1259,6 +1292,7 @@ for each component.
     > cart commodity. This variable can be computed by referencing 
     > [order](#Orders) related tables, but just denormalized for the
     > performance reason.
+---
 
 ### `shopping_cart_commodity_stocks`
 Final stock information of commodity added to the shopping cart.
@@ -1287,6 +1321,7 @@ actually purchased can be multiplied by the
   - `shopping_sale_snapshot_unit_stock_id`: Target final stock's [shopping_sale_snapshot_unit_stocks.id](#shopping_sale_snapshot_unit_stocks)
   - `quantity`: Quantity count.
   - `sequence`: Sequence order in belonged cart commodity.
+---
 
 ### `shopping_cart_commodity_stock_choices`
 Option choice information for the final stock added to the shopping cart.
@@ -1314,7 +1349,9 @@ entered by the customer.
   - `shopping_sale_snapshot_unit_option_candidate_id`: Selected candidate's [shopping_sale_snapshot_unit_option_candidates.id](#shopping_sale_snapshot_unit_option_candidates)
   - `value`: User-written value for descriptive option.
   - `sequence`: Sequence order in belonged cart-commodity-stock.
+---
 
+<br/>
 
 ## Orders
 ```mermaid
@@ -1428,6 +1465,7 @@ x | [shopping_carts](#shopping_carts) | [shopping_orders](#shopping_orders)
     > If order be published, unable to erase it. In that case, you
     > [shopping_order_publishes.cancelled_at](#shopping_order_publishes) instead, or utilize
     > [shopping_order_good_reverts](#shopping_order_good_reverts) instead.
+---
 
 ### `shopping_order_goods`
 Information about the individual goods that make up your order.
@@ -1483,6 +1521,7 @@ for ordered products.
     > 
     > - Customer does it directly.
     > - 14 days after the delivery.
+---
 
 ### `shopping_order_publishes`
 Order completion and payment information.
@@ -1523,6 +1562,7 @@ it is suddenly canceled, so please be aware of this as well.
     > completed. If this property is `null`, the payment has not been
     > completed yet.
   - `cancelled_at`: The time when the payment was cancelled or reverted.
+---
 
 ### `shopping_deliveries`
 Delivery information.
@@ -1546,6 +1586,7 @@ another subsidiary entity [shopping_delivery_journeys](#shopping_delivery_journe
   - `id`: 
   - `shopping_seller_id`: Belonged seller's [id](#shopping_sellers)
   - `invoice_code`: Invoice code if exists.
+---
 
 ### `shopping_delivery_pieces`
 Which stocks are delivered.
@@ -1560,6 +1601,7 @@ Which stocks are delivered.
     > 
     > It can be precision value to express splitted shipping.
   - `sequence`: Sequence order in belonged delivery.
+---
 
 ### `shopping_delivery_journeys`
 Journey of delivery.
@@ -1578,7 +1620,9 @@ Journey of delivery.
   - `created_at`: Creation time of record.
   - `started_at`: Start time of journey.
   - `completed_at`: Completion time of journey.
+---
 
+<br/>
 
 ## Coupons
 ```mermaid
@@ -1791,6 +1835,7 @@ subsidiary entities described later.
     > Deletion time of record.
     > 
     > Pre-issued tickets can still be used until their expiration date.
+---
 
 ### `shopping_coupon_criterias`
 Supertype for the applicable conditions of the discount coupon.
@@ -1823,6 +1868,7 @@ object.
     > - include
     > - exclude
   - `sequence`: Sequence order in belonged coupon.
+---
 
 ### `shopping_coupon_section_criterias`
 Conditions for sections of discount coupons.
@@ -1841,6 +1887,7 @@ eligible sections.
 **Properties**
   - `id`: 
   - `shopping_section_id`: Target section's [shopping_coupon_criterias.id](#shopping_coupon_criterias)
+---
 
 ### `shopping_coupon_channel_criterias`
 Conditions for channels of discount coupons.
@@ -1861,6 +1908,7 @@ applicable for target channels and categories.
   - `id`: 
   - `shopping_channel_id`: Target channel's [shopping_channels.id](#shopping_channels)
   - `shopping_channel_category_id`: Target channel category's [shopping_channel_categories.id](#shopping_channel_categories)
+---
 
 ### `shopping_coupon_seller_criterias`
 Conditions for sellers of discount coupons.
@@ -1880,6 +1928,7 @@ not be applicable to eligible sellers.
 **Properties**
   - `id`: PK + FK.
   - `shopping_seller_id`: Target seller's [shopping_sellers.id](#shopping_sellers)
+---
 
 ### `shopping_coupon_sale_criterias`
 Conditions for a specific item in a discount coupon.
@@ -1897,6 +1946,7 @@ And if there are multiple shopping_coupon_sale_criterias records within one coup
 **Properties**
   - `id`: PK + FK.
   - `shopping_sale_id`: Target sale's [shopping_sales.id](#shopping_sales)
+---
 
 ### `shopping_coupon_funnel_criterias`
 Limit the funnel of discount coupons.
@@ -1921,6 +1971,7 @@ address, restrictions can be made in units of specific URLs or variables.
     > - variable
   - `key`: Key name of funnel, when `kind` is "variable".
   - `value`: Value of funnel.
+---
 
 ### `shopping_coupon_tickets`
 Discount coupon ticket issuance details.
@@ -1943,6 +1994,7 @@ use the discount coupon for your order within the deadline.
     > Only when current ticket be issued from one-time code.
   - `created_at`: Creation time of record.
   - `expired_at`: Expiration time of ticket.
+---
 
 ### `shopping_coupon_ticket_payments`
 Discount coupon ticket payment details.
@@ -1975,6 +2027,7 @@ order itself is canceled.
     > 
     > In other words, it means that the target order be erased or payment 
     > be cancelled.
+---
 
 ### `shopping_coupon_disposables`
 Discount coupon issuance code management.
@@ -1998,7 +2051,9 @@ issuing code must also be supported by the corresponding quantity.
     > Another word, one-time password for issuance.
   - `created_at`: Creation time of record.
   - `expired_at`: Expired time of record.
+---
 
+<br/>
 
 ## Coins
 ```mermaid
@@ -2101,6 +2156,7 @@ metadata that specifies specifications for income/outcome scenarios.
     > - `-1`: outcome
   - `created_at`: Creation time of record.
   - `deleted_at`: / Deletion time of record.
+---
 
 ### `shopping_deposit_histories`
 Deposit income/outcome details of customers (citizens).
@@ -2128,6 +2184,7 @@ outcome. The minus value must be expressed by multiplying the
     > the attributed [shopping_deposits.direction](#shopping_deposits) value.
   - `created_at`: Creation time of record.
   - `cancelled_at`: Cancelled time of record.
+---
 
 ### `shopping_deposit_charges`
 Deposit deposit.
@@ -2150,6 +2207,7 @@ will the deposit increase be confirmed.
     > Deletion time of record.
     > 
     > Only when be stopped before publishing.
+---
 
 ### `shopping_deposit_charge_publishes`
 Payment progress information for deposits.
@@ -2185,6 +2243,7 @@ suddenly canceled, so you must be careful about this as well.
     > completed. If this property is null, the payment has not been 
     > completed yet.
   - `cancelled_at`: The time when the payment was cancelled or reverted.
+---
 
 ### `shopping_mileages`
 Meta information of mileage.
@@ -2213,6 +2272,7 @@ withdrawn.
     > creating a new record, or percentage value to be applied.
   - `created_at`: Creation time of record.
   - `deleted_at`: Deletion time of record.
+---
 
 ### `shopping_mileage_histories`
 Mileagea income/outcome details of customers (citizens).
@@ -2240,7 +2300,9 @@ outcome. The minus value must be expressed by multiplying the
     > the attributed [shopping_mileages.direction](#shopping_mileages) value.
   - `created_at`: Creation time of record.
   - `cancelled_at`: Cancelled time of record.
+---
 
+<br/>
 
 ## Inquiries
 ```mermaid
@@ -2344,6 +2406,7 @@ unless the seller is a party.
     > - `question`
     > - `review`
   - `read_by_seller_at`: The first time when the seller read the inquiry.
+---
 
 ### `shopping_sale_snapshot_questions`
 Question about sale snapshot.
@@ -2362,6 +2425,7 @@ question.
 **Properties**
   - `id`: PK + FK.
   - `secret`: Whether secret or not.
+---
 
 ### `shopping_sale_snapshot_reviews`
 Reviews for sale snapshots.
@@ -2383,6 +2447,7 @@ later?
 **Properties**
   - `id`: PK + FK.
   - `shopping_order_good_id`: Belonged good's [shopping_order_goods.id](#shopping_order_goods)
+---
 
 ### `shopping_sale_snapshot_review_snapshots`
 A snapshot of the content of the review for the sale snapshot.
@@ -2397,6 +2462,7 @@ and change the evaluation `score` at any time.
 **Properties**
   - `id`: PK + FK.
   - `score`: Estimation score value.
+---
 
 ### `shopping_sale_snapshot_inquiry_answers`
 Answers to questions about sale snapshots.
@@ -2421,6 +2487,7 @@ articles.
   - `id`: PK + FK
   - `shopping_sale_snapshot_inquiry_id`: Belonged inquiry's [shopping_sale_snapshot_inquiries.id](#shopping_sale_snapshot_inquiries)
   - `shopping_seller_id`: Answered seller's [shopping_sellers.id](#shopping_sellers)
+---
 
 ### `shopping_sale_snapshot_inquiry_comments`
 A comment written on a question post.
@@ -2439,7 +2506,9 @@ the person who wrote the inquiry.
   - `id`: PK + FK
   - `shopping_seller_id`: Writer seller's [shopping_sellers.id](#shopping_sellers)
   - `shopping_customer_id`: Writer customer's [shopping_customers.id](#shopping_customers)
+---
 
+<br/>
 
 ## default
 ```mermaid
@@ -2468,3 +2537,4 @@ Table for caching.
     > 
     > Even when key type is not string, it must be converted to the string value.
   - `value`: The time when the cache data being archived.
+---
